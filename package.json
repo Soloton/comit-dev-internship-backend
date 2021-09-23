@@ -1,0 +1,29 @@
+{
+    "devDependencies": {
+        "@babel/cli": "^7.15.7",
+        "@babel/core": "^7.15.5",
+        "@babel/preset-env": "^7.15.6",
+        "@babel/register": "^7.15.3",
+        "prettier": "2.4.1"
+    },
+    "name": "comit-dev-internship-backend",
+    "description": "Я Архипов Михаил Сергеевич, торжественно клянусь пройти данный курс до конца и стать самым лучшим front-end разработчиком.",
+    "version": "1.0.0",
+    "main": "entry-point.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Soloton/comit-dev-internship-backend.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Soloton/comit-dev-internship-backend/issues"
+    },
+    "homepage": "https://github.com/Soloton/comit-dev-internship-backend#readme",
+    "dependencies": {
+        "regenerator-runtime": "^0.13.9"
+    }
+}
