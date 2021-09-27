@@ -1,5 +1,5 @@
-const list = catsGroupGenerate(999);
-
 function getMaleCats(list) {
-    list.filter(x => x.gender === 'кот');
+    return list.filter(x => x.gender === 'кот');
 }
+
+module.exports = getMaleCats
