@@ -28,4 +28,32 @@ describe("task04", function () {
       }
     });
   });
+
+  describe("task04.getCatsNames", function () {
+    let catsNames;
+    before(function () {
+      catsNames = task04.getCatsNames(catsGroup);
+    });
+
+    it("should return an array of string whose length must be less than or equal to the length of the cats array.", function () {
+      catsNames.should.be.an("array");
+      catsNames.length.should.be.lessThanOrEqual(catsGroupLength);
+    });
+
+    it("should return an array of not empty strings whose gender property is exists in original array of objects", function () {
+      for (let catName of catsNames) {
+        catName.should.be.an("string");
+        catName.should.not.be.empty;
+      }
+
+      const catsNamesSet = new Set(catsNames);
+
+      for (let cat of catsGroup) {
+        catsNamesSet.should.contain(
+          cat.name,
+          `original array should contain ${cat.name}`
+        );
+      }
+    });
+  });
 });
