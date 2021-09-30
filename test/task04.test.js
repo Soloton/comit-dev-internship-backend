@@ -103,4 +103,53 @@ describe("task04", function () {
       }
     });
   });
+
+  describe("task04.getYoungestFemaleCatsNames", function () {
+    let youngestFemaleCatsNames,
+      youngestFemaleCatsNamesCount,
+      expectedArray,
+      expectedArrayLength;
+
+    before(function () {
+      youngestFemaleCatsNamesCount = Math.floor(
+        Math.random() * catsGroupLength
+      );
+      youngestFemaleCatsNames = task04.getYoungestFemaleCatsNames(
+        catsGroup,
+        youngestFemaleCatsNamesCount
+      );
+
+      expectedArray = catsGroup
+        .filter((x) => x.gender === "кошка")
+        .sort((a, b) => a.age - b.age);
+
+      expectedArrayLength = Math.min(
+        expectedArray.length,
+        youngestFemaleCatsNamesCount
+      );
+    });
+
+    it("should return an array whose length must be less than or equal to the length of the cats array", function () {
+      youngestFemaleCatsNames.should.be.an("array");
+      youngestFemaleCatsNames.length.should.be.lessThanOrEqual(catsGroupLength);
+    });
+
+    it("should return an array whose length must be equal to the requested number", function () {
+      youngestFemaleCatsNames.length.should.to.be.equal(
+        expectedArrayLength,
+        "the returned quantity is not equal to the requested quantity"
+      );
+    });
+
+    it("should return an array of cat names, sorted in ascending order of age", function () {
+      for (let i = 0; i < expectedArrayLength; i++) {
+        youngestFemaleCatsNames[i].should.to.equal(
+          expectedArray[i].name,
+          `on ${
+            i + 1
+          }/${expectedArrayLength} loop iteration. ${catsGroupLength}`
+        );
+      }
+    });
+  });
 });
