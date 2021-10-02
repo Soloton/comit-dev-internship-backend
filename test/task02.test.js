@@ -94,13 +94,6 @@ function runCatFactoryCorrectTest(title, defaults = {}) {
         .greaterThanOrEqual(0, "too few tail lengths")
         .and.lessThanOrEqual(3, "too many tail lengths");
     });
-
-    // it("should return a cat with a valid loudness property", function () {
-    //   cat.loudness.should.to.be.a("number");
-    //   cat.loudness.should.to.be
-    //     .greaterThanOrEqual(0, "too few loudness volume")
-    //     .and.lessThanOrEqual(10, "too many loudness volume");
-    // });
   });
 }
 
