@@ -2,7 +2,10 @@ require("regenerator-runtime/runtime");
 require("@babel/register");
 
 const catsGroupGenerate = require("./task03");
+const task04 = require("./task04");
 
-for (let cat of catsGroupGenerate(10)) {
+const list = catsGroupGenerate(999);
+
+for (let cat of task04.getYoungestFemaleCatsNames(list, 10)) {
   console.log(cat);
 }

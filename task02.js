@@ -24,7 +24,7 @@ function catFactory() {
   const ages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   let genders = ["кот", "кошка"];
   let legs = [3, 4];
-  let tailLengths = [""];
+  let tailLengths = [0, 1, 2, 3];
 
   return {
     name: pick(names),
