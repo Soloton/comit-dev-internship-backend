@@ -1,6 +1,6 @@
 const pick = require("./task01");
 
-function catFactory() {
+function catFactory(defaults = {}) {
   const names = [
     "Пульферия",
     "Ляжка",
@@ -26,13 +26,15 @@ function catFactory() {
   let legs = [3, 4];
   let tailLengths = [0, 1, 2, 3];
 
-  return {
+  const result = {
     name: pick(names),
     age: pick(ages),
     gender: pick(genders),
     legsCount: pick(legs),
     tailLength: pick(tailLengths),
   };
+  Object.assign(result, defaults);
+  return result;
 }
 
 module.exports = catFactory;
