@@ -47,6 +47,18 @@ function runCatFactoryCorrectTest(title, defaults = {}) {
       cat.should.be.an("object");
     });
 
+    it("should return an object that has expected properties", function () {
+      for (const property of [
+        "name",
+        "age",
+        "gender",
+        "legsCount",
+        "tailLength",
+      ]) {
+        cat.should.to.have.property(property);
+      }
+    });
+
     it("should return a cat with the name property as a non-empty string", function () {
       cat.name.should.be.a("string");
       cat.name.should.not.be.empty;
@@ -82,6 +94,13 @@ function runCatFactoryCorrectTest(title, defaults = {}) {
         .greaterThanOrEqual(0, "too few tail lengths")
         .and.lessThanOrEqual(3, "too many tail lengths");
     });
+
+    // it("should return a cat with a valid loudness property", function () {
+    //   cat.loudness.should.to.be.a("number");
+    //   cat.loudness.should.to.be
+    //     .greaterThanOrEqual(0, "too few loudness volume")
+    //     .and.lessThanOrEqual(10, "too many loudness volume");
+    // });
   });
 }
 
@@ -122,7 +141,7 @@ function runCatFactoryIncorrectTest(title, defaults = {}) {
       );
     });
 
-    it("should return a cat with a valid tailLength property", function () {
+    it("should return a cat with a invalid tailLength property", function () {
       cat.tailLength.should.to.be.a("number");
       cat.tailLength.should.satisfy(
         (tailLength) => tailLength < 0 || tailLength > 3,
