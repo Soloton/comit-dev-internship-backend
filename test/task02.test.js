@@ -18,6 +18,7 @@ describe("catFactory default", function () {
   firstAbnormalCat.gender = "котЭ";
   firstAbnormalCat.legsCount = -1;
   firstAbnormalCat.tailLength = -1;
+  firstAbnormalCat.loudness = -1;
   runCatFactoryIncorrectTest(
     "with first abnormal default cat",
     firstAbnormalCat
@@ -29,6 +30,7 @@ describe("catFactory default", function () {
   secondAbnormalCat.gender = "котЭ";
   secondAbnormalCat.legsCount = 5;
   secondAbnormalCat.tailLength = 4;
+  secondAbnormalCat.loudness = 12;
   runCatFactoryIncorrectTest(
     "with second abnormal default cat",
     secondAbnormalCat
@@ -54,6 +56,7 @@ function runCatFactoryCorrectTest(title, defaults = {}) {
         "gender",
         "legsCount",
         "tailLength",
+        "loudness",
       ]) {
         cat.should.to.have.property(property);
       }
@@ -93,6 +96,13 @@ function runCatFactoryCorrectTest(title, defaults = {}) {
       cat.tailLength.should.to.be
         .greaterThanOrEqual(0, "too few tail lengths")
         .and.lessThanOrEqual(3, "too many tail lengths");
+    });
+
+    it("should return a cat with a valid loudness property", function () {
+      cat.loudness.should.to.be.a("number");
+      cat.loudness.should.to.be
+        .greaterThanOrEqual(0, "too few loudness volume")
+        .and.lessThanOrEqual(10, "too many loudness volume");
     });
   });
 }
@@ -139,6 +149,14 @@ function runCatFactoryIncorrectTest(title, defaults = {}) {
       cat.tailLength.should.satisfy(
         (tailLength) => tailLength < 0 || tailLength > 3,
         "the tail is abnormal"
+      );
+    });
+
+    it("should return a cat with a invalid loudness property", function () {
+      cat.loudness.should.to.be.a("number");
+      cat.loudness.should.satisfy(
+        (loudness) => loudness < 0 || loudness > 10,
+        "the loudness is abnormal"
       );
     });
   });

@@ -19,6 +19,7 @@ describe("catsGroupGenerate default", function () {
     firstAbnormalCat.gender = "котЭ";
     firstAbnormalCat.legsCount = -1;
     firstAbnormalCat.tailLength = -1;
+    firstAbnormalCat.loudness = -1;
     const catsGroupLength = Math.floor(Math.random() * 999);
     const catsGroup = catsGroupGenerate(catsGroupLength, firstAbnormalCat);
     catsGroup.should.all.be.deep.equal(firstAbnormalCat);
