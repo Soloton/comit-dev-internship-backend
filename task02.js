@@ -22,6 +22,7 @@ function catFactory(defaults = {}) {
     "Шалопай",
   ];
   const ages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const loudnessVolumes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let genders = ["кот", "кошка"];
   let legs = [3, 4];
   let tailLengths = [0, 1, 2, 3];
@@ -32,6 +33,7 @@ function catFactory(defaults = {}) {
     gender: pick(genders),
     legsCount: pick(legs),
     tailLength: pick(tailLengths),
+    loudness: pick(loudnessVolumes),
   };
   Object.assign(result, defaults);
   return result;
